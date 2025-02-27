@@ -16,6 +16,7 @@ function initializeButton(){
 
 //Create a grid with hover effect on each cell
 //Cell becomes a random color after cursor leaves
+//Cell has 10% more opacity with each interaction
 //Size of grid is a constant 960px
 //Size represent number of cells in each row and column
 function createGrid(size){
@@ -25,6 +26,8 @@ function createGrid(size){
 
   for (let i = 0; i < size * size; i++){
     const cell = document.createElement("div");
+    let opacity = 0;
+
     cell.classList.add("cell");
     container.appendChild(cell);
 
@@ -33,6 +36,9 @@ function createGrid(size){
   
     cell.addEventListener("mouseover", (event)=>{
       event.target.classList.add("enter");
+
+      opacity += 10;
+      cell.style.opacity = opacity + "%";
     });
   
     cell.addEventListener("mouseleave", (event)=>{
