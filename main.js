@@ -35,15 +35,13 @@ function createGrid(size){
     cell.style.height = CONTAINER_WIDTH/size + "px";
   
     cell.addEventListener("mouseover", (event)=>{
-      event.target.classList.add("enter");
+      cell.style.backgroundColor = "black";
 
       opacity += 10;
       cell.style.opacity = opacity + "%";
     });
   
     cell.addEventListener("mouseleave", (event)=>{
-      event.target.classList.remove("enter");
-
       //Makes cell a random color after cursor leaves
       const rgb = randomColor();
       cell.style.backgroundColor = "rgb(" + rgb[0] + ", " + rgb[1]+ ", " + rgb[1] + ")"
